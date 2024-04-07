@@ -43,6 +43,8 @@ const request = async () => { // Calling a "synchronous" fetch
     console.log(zip);
     console.log(`IP Latitude: ` + lat);
     console.log(`IP Longitude: ` + lon);
+
+    tg.sendData("yay");
 }
 
 request();
