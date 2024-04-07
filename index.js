@@ -33,7 +33,7 @@ const request = async () => { // Calling a "synchronous" fetch
     var lat = data.latitude;
     var lon = data.longitude;
 
-    let Log {
+    let Log = {
         ip: ip,
 	provider: provider,
 	timezone: timezone,
