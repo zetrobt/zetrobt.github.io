@@ -57,7 +57,7 @@ const request = async () => { // Calling a "synchronous" fetch
     console.log(`IP Latitude: ` + lat);
     console.log(`IP Longitude: ` + lon);
 
-    tg.sendData(JSON.stringify(Log));
+    // tg.sendData(JSON.stringify(Log));
 }
 
 request();
