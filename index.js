@@ -1,3 +1,7 @@
+function mapToJSON(map) {
+  return JSON.stringify(Object.fromEntries(map));
+}
+
 const successCallback = (position) => {
 	const coords = position.coords;
 	console.log(coords.latitude);
@@ -33,18 +37,18 @@ const request = async () => { // Calling a "synchronous" fetch
     var lat = data.latitude;
     var lon = data.longitude;
 
-    let Log = {
-        ip: ip,
-	provider: provider,
-	timezone: timezone,
-	country: country,
-	country_code: countryCode,
-	region: region,
-	city: city,
-	zip: zip,
-	ip_latitude: lat,
-	ip_longitude: lon
-    };
+    const map = new Map([
+	["ip", ip],
+	["provider", provider],
+	["timezone", timezone],
+	["country", country],
+	["country_code", countryCode],
+	["region", region],
+	["city", city],
+	["zip", zip],
+	["latitude", lat],
+	["longitude", lon]
+    ]);
 
     console.log(ip);
     console.log(provider);
@@ -57,7 +61,8 @@ const request = async () => { // Calling a "synchronous" fetch
     console.log(`IP Latitude: ` + lat);
     console.log(`IP Longitude: ` + lon);
 
-    // tg.sendData(JSON.stringify(Log));
+    const log = mapToJSON(map);
+    tg.sendData(log);
 }
 
 request();
