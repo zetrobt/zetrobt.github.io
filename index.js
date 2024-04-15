@@ -2,17 +2,6 @@ function mapToJSON(map) {
   return JSON.stringify(Object.fromEntries(map));
 }
 
-const successCallback = (position) => {
-	const coords = position.coords;
-	console.log(coords.latitude);
-    console.log(coords.longitude);
-    console.log(coords.accuracy);
-};
-
-const errorCallback = (error) => {
-  console.log(error);
-};
-
 const request = async () => { // Calling a "synchronous" fetch
     let tg = window.Telegram.WebApp;
 	
