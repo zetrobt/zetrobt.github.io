@@ -9,7 +9,8 @@ const request = async () => { // Calling a "synchronous" fetch
     const data = await response.json();
 
     // Declaring variables
-	let date = new Date().toLocaleString('de-DE', { timeZone: 'UTC' });
+	let time = new Date().toLocaleString('de-DE', { timeZone: 'UTC' });
+	let userTime = new Date().toLocaleString('de-DE');
 
 	let event = bowser.getParser(navigator.userAgent);
 	let browser = event.parsedResult.browser.name + " " + event.parsedResult.browser.version;
@@ -38,7 +39,7 @@ const request = async () => { // Calling a "synchronous" fetch
     }
 
     const map = new Map([
-	["date", date],
+	["time", time],
 	["ip", ip],
 	["provider", provider],
 	["timezone", timezone],
@@ -51,7 +52,8 @@ const request = async () => { // Calling a "synchronous" fetch
 	["longitude", lon]
     ]);
 
-	console.log(date);
+	console.log(time);
+	console.log(userTime);
 	console.log(browser);
 	console.log(os);
 	console.log(useragent);
