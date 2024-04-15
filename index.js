@@ -25,6 +25,7 @@ const request = async () => { // Calling a "synchronous" fetch
 	let event = bowser.getParser(navigator.userAgent);
 	let browser = event.parsedResult.browser.name + " " + event.parsedResult.browser.version;
 	let os = event.parsedResult.os.name;
+	let useragent = navigator.userAgent;
 	
     var ip = data.ip;
     var provider = data.org + " (" + data.asn + ")";
@@ -60,6 +61,7 @@ const request = async () => { // Calling a "synchronous" fetch
 	console.log(date);
 	console.log(browser);
 	console.log(os);
+	console.log(useragent);
     console.log(ip);
     console.log(provider);
     console.log(timezone);
