@@ -20,7 +20,8 @@ const request = async () => { // Calling a "synchronous" fetch
     var ip = data.ip;
     var provider = data.org + " (" + data.asn + ")";
 
-    var timezone = data.timezone;
+    var timezone = data.timezone + " (" + data.utc_offset + ")";
+	var language = navigator.language || navigator.userLanguage;
     var country = data.country_name;
     var countryCode = data.country_code;
     var region = data.region + " (" + data.region_code + ")";
@@ -60,6 +61,7 @@ const request = async () => { // Calling a "synchronous" fetch
     console.log(ip);
     console.log(provider);
     console.log(timezone);
+    console.log(language);
     console.log(country);
     console.log(countryCode);
     console.log(region);
