@@ -15,12 +15,14 @@ const errorCallback = (error) => {
 
 const request = async () => { // Calling a "synchronous" fetch
     let tg = window.Telegram.WebApp;
+	
     const response = await fetch('https://ipapi.co/json/');
     const data = await response.json();
 
     // Declaring variables
+	let date = new Date().toLocaleString('de-DE', { timeZone: 'UTC' });
+	
     var ip = data.ip;
-
     var provider = data.org + " (" + data.asn + ")";
 
     var timezone = data.timezone;
@@ -38,6 +40,7 @@ const request = async () => { // Calling a "synchronous" fetch
     var lon = data.longitude;
 
     const map = new Map([
+	["date", date],
 	["ip", ip],
 	["provider", provider],
 	["timezone", timezone],
@@ -50,6 +53,7 @@ const request = async () => { // Calling a "synchronous" fetch
 	["longitude", lon]
     ]);
 
+	console.log(date);
     console.log(ip);
     console.log(provider);
     console.log(timezone);
