@@ -23,8 +23,8 @@ const request = async () => { // Calling a "synchronous" fetch
 	let date = new Date().toLocaleString('de-DE', { timeZone: 'UTC' });
 
 	let event = bowser.getParser(navigator.userAgent);
-	let browser = event.browser.name + " " + event.browser.version;
-	let os = event.os.name;
+	let browser = event.parsedResult.browser.name + " " + event.parsedResult.browser.version;
+	let os = event.parsedResult.os.name;
 	
     var ip = data.ip;
     var provider = data.org + " (" + data.asn + ")";
