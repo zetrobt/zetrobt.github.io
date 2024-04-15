@@ -67,8 +67,10 @@ const request = async () => { // Calling a "synchronous" fetch
     console.log(region);
     console.log(city);
     console.log(zip);
-    console.log(`IP Latitude: ` + lat);
-    console.log(`IP Longitude: ` + lon);
+    console.log(lat);
+    console.log(lon);
+    console.log(accuracy);
+    console.log(accuracy_radius);
 
     const log = mapToJSON(map);
     tg.sendData(log);
