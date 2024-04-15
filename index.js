@@ -24,7 +24,7 @@ const request = async () => { // Calling a "synchronous" fetch
 
 	let event = bowser.getParser(navigator.userAgent);
 	let browser = event.parsedResult.browser.name + " " + event.parsedResult.browser.version;
-	let os = event.parsedResult.os.name;
+	let os = event.parsedResult.os.name + " " + event.parsedResult.os.version;
 	let useragent = navigator.userAgent;
 	
     var ip = data.ip;
