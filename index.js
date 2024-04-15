@@ -35,14 +35,22 @@ const request = async () => { // Calling a "synchronous" fetch
     var countryCode = data.country_code;
     var region = data.region + " (" + data.region_code + ")";
     var city = data.city;
-    
-    if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    }
 
-    var zip = data.postal;
+	var accuracy = "IP";
+	var accuracy_radius = "ip";
+	var zip = data.postal;
     var lat = data.latitude;
     var lon = data.longitude;
+    
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+			(position) =>  {
+				accuracy = "GPS";
+				accuracy_radius = position.coords.accuracy;
+				lat = position.coords.latitude;
+				lon = position.coords.longitude;
+			});
+    }
 
     const map = new Map([
 	["date", date],
