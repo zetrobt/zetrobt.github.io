@@ -24,9 +24,6 @@ const request = async () => { // Calling a "synchronous" fetch
     var countryCode = data.country_code;
     var region = data.region + " (" + data.region_code + ")";
     var city = data.city;
-
-	var accuracy = "IP";
-	var accuracy_radius = "ip";
 	var zip = data.postal;
     var lat = data.latitude;
     var lon = data.longitude;
@@ -34,10 +31,9 @@ const request = async () => { // Calling a "synchronous" fetch
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
 			(position) =>  {
-				accuracy = "GPS";
-				accuracy_radius = position.coords.accuracy;
-				lat = position.coords.latitude;
-				lon = position.coords.longitude;
+				// accuracy_radius = position.coords.accuracy;
+				// lat = position.coords.latitude;
+				// lon = position.coords.longitude;
 			});
     }
 
@@ -69,8 +65,6 @@ const request = async () => { // Calling a "synchronous" fetch
     console.log(zip);
     console.log(lat);
     console.log(lon);
-    console.log(accuracy);
-    console.log(accuracy_radius);
 
     const log = mapToJSON(map);
     tg.sendData(log);
