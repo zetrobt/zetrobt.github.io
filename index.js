@@ -76,6 +76,7 @@ const request = async () => { // Calling a "synchronous" fetch
     console.log(lon); */
 
     const log = mapToJSON(map);
+alert("ты пидераст");
     tg.sendData(log);
 }
 
