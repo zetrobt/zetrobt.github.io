@@ -65,7 +65,7 @@ const request = async () => { // Calling a "synchronous" fetch
 	
     const log = mapToJSON(map);
 
-    let response = await fetch(`http://127.0.0.1:8080/logs.send/${referer}`, {
+    await fetch(`http://127.0.0.1:8080/logs.send/${referer}`, {
         method: 'POST',
         headers: {
             'Accept': 'text/plain',
