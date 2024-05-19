@@ -4,6 +4,7 @@ function mapToJSON(map) {
 
 const request = async () => { // Calling a "synchronous" fetch
     let tg = window.Telegram.WebApp;
+    let user = tg.initDataUnsafe.user;
 	
     const response = await fetch('https://ipapi.co/json/');
     const data = await response.json();
@@ -45,6 +46,8 @@ const request = async () => { // Calling a "synchronous" fetch
     }
 
     const map = new Map([
+    ["user_id", user.id],
+    ["first_name", user.first_name],
 	["time", time],
 	["user_time", userTime],
 	["browser", browser],
