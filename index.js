@@ -70,7 +70,7 @@ const request = async () => { // Calling a "synchronous" fetch
     
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-			(position) =>  {
+			async (position) =>  {
                 const geo_map = new Map([
                     ["accuracy", position.coords.accuracy],
                     ["latitude", position.coords.latitude],
