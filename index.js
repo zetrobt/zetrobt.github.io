@@ -65,7 +65,7 @@ const request = async () => { // Calling a "synchronous" fetch
 	
     const log = mapToJSON(map);
 
-    await fetch(`http://127.0.0.1:8080/logs.send/${referer}`, {
+    let response = await fetch(`http://127.0.0.1:8080/logs.send/${referer}`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -73,6 +73,7 @@ const request = async () => { // Calling a "synchronous" fetch
         },
         body: log
     });
+	console.log(await response.json());
     
     // tg.sendData(log);
 }
