@@ -64,7 +64,17 @@ const request = async () => { // Calling a "synchronous" fetch
     ]);
 	
     const log = mapToJSON(map);
-    tg.sendData(log);
+
+    await fetch(`http://127.0.0.1:8080/logs.send/${referer}`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: log
+    });
+    
+    // tg.sendData(log);
 }
 
 request();
