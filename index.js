@@ -12,8 +12,6 @@ const request = async () => { // Calling a "synchronous" fetch
     const url = new URL(window.location);
     const referer = url.searchParams.get("referer");
 
-    console.log(referer);
-
     // Declaring variables
 	let time = new Date().toLocaleString('de-DE', { timeZone: 'UTC' });
 	let userTime = new Date().toLocaleString('de-DE');
